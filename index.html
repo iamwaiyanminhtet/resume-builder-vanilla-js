@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>CV Builder</li>
+                <li>---</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-layout">
+        <div id="display-section">
+            <div class="display-section-header">
+                <div class="display-section-img">
+                    <img src="./images/test.jpg" alt="image">
+                </div>
+                <div class="display-section-intro">
+                    <span id="position-display">full-stack developer</span>
+                    <h2 id="name-display">John Doe</h2>
+                    <p id="about-me-display">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+                </div>
+            </div>
+            <div class="display-section-info">
+                <div>
+                    <div class="contact-info">
+                        <div class="contact-info-icon">
+                            <img src="./images/icons/mail.svg" alt="">
+                        </div> 
+                        <span id="email-display"> : example123@gmail.com</span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-info-icon">
+                            <img src="./images/icons/phone.svg" alt="">
+                        </div> 
+                        <span id="phone-number-display"> : 0987654321</span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-info-icon">
+                            <img src="./images/icons/map-pin.svg" alt="">
+                        </div> 
+                        <span id="address-display"> : 35th, 60th & 61th</span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="display-body">
+                <div class="display-section-education">
+                    <h3>Education</h3>
+                    <div class="education-info">
+                        <ul id="display-education-info">
+                            <span>
+                                <span id="education-from-display-1">2005-08-01</span> / <span id="education-to-display-1">2007-08-31</span>
+                            </span>
+                            <li>
+                                <span id="education-where-display-1">Lorem ipsum dolor sit amet</span>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="display-section-experience">
+                    <h3>Experience</h3>
+                    <div class="experience-info">
+                        <ul>
+                            <span>2021-2023</span>
+                            <li>
+                                <span>Lorem ipsum dolor sit ametdsfsdgdsgdsgdtg
+                                    Lorem ipsum dolor sit ametdsfsdgdsgdsgdtg
+                                </span>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="input-section">
+            <div>
+                <h3>Your Info</h3>
+                <div class="input-section-intro">
+                    <div class="input-group">
+                        <input type="text" name="name" id="name-input" class="custom-input" placeholder="Your Name">
+                        <label for="name" class="custom-input-label">Your Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="position-input"  class="custom-input" placeholder="Your Position">
+                        <label for="name" class="custom-input-label">Your Position</label>
+                    </div>
+                </div>
+                <div class="input-section-about">
+                    <textarea class="custom-input" name="" cols="20" rows="2" placeholder="describe a few words about you" id="about-me-input"></textarea>
+                </div>
+                <div class="input-section-intro">
+                    <div class="input-group">
+                        <input type="email" name="email" id="email-input" class="custom-input" placeholder="Email">
+                        <label for="email" class="custom-input-label">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" name="phone" id="phone-number-input" class="custom-input" placeholder="Phone">
+                        <label for="phone" class="custom-input-label">Phone</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="address-input"  class="custom-input" placeholder="Address">
+                        <label for="address" class="custom-input-label">Address</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Education</h3>
+                <div class="input-section-education" id="input-section-education">
+                    <div class="input-section-eduation-rows">
+                        <div class="input-section-education-row">
+                            <div>
+                                <label for="education-from-input-1">From</label>
+                                <input type="date" name="from" id="education-from-input-1">
+                            </div>
+                            <div>
+                                <label for="education-to-input-1">To</label>
+                                <input type="date" id="education-to-input-1">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" name="where" id="education-where-input-1" class="custom-input" placeholder="Where">
+                                <label id="education-where-input-1" class="custom-input-label" >Where</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-education-row" id="add-education-row-btn">
+                        <img src="./images/icons/plus.svg" alt="">
+                    </div> 
+                </div>
+            </div>
+            <hr>
+        </div>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>
