@@ -11,7 +11,11 @@
         <nav>
             <ul>
                 <li>CV Builder</li>
-                <li>---</li>
+                <li>
+                    <div>
+                        <button id="print">Print</button>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -68,12 +72,12 @@
                 <div class="display-section-experience">
                     <h3>Experience</h3>
                     <div class="experience-info">
-                        <ul>
-                            <span>2021-2023</span>
+                        <ul id="display-experience-info">
+                            <span>
+                                <span id="experience-from-display-1">2005-08-01</span> / <span id="experience-to-display-1">2007-08-31</span>
+                            </span>
                             <li>
-                                <span>Lorem ipsum dolor sit ametdsfsdgdsgdsgdtg
-                                    Lorem ipsum dolor sit ametdsfsdgdsgdsgdtg
-                                </span>
+                                <span id="experience-where-display-1">Lorem ipsum dolor sit amet</span>
                             </li>
                           </ul>
                     </div>
@@ -114,7 +118,7 @@
             <div>
                 <h3>Education</h3>
                 <div class="input-section-education" id="input-section-education">
-                    <div class="input-section-eduation-rows">
+                    <div class="input-section-education-rows">
                         <div class="input-section-education-row">
                             <div>
                                 <label for="education-from-input-1">From</label>
@@ -130,9 +134,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="add-education-row" id="add-education-row-btn">
-                        <img src="./images/icons/plus.svg" alt="">
-                    </div> 
+                    <div class="plus-minus">
+                        <div class="add-education-row" id="add-education-row-btn">
+                            <img src="./images/icons/plus.svg" alt="">
+                        </div> 
+                        <div class="add-education-row" id="remove-education-row-btn">
+                            <img src="./images/icons/minus.svg" alt="">
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Experience</h3>
+                <div class="input-section-experience" id="input-section-experience">
+                    <div class="input-section-experience-rows">
+                        <div class="input-section-experience-row">
+                            <div>
+                                <label for="experience-from-input-1">From</label>
+                                <input type="date" name="from" id="experience-from-input-1">
+                            </div>
+                            <div>
+                                <label for="experience-to-input-1">To</label>
+                                <input type="date" id="experience-to-input-1">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" name="where" id="experience-where-input-1" class="custom-input" placeholder="Where">
+                                <label id="experience-where-input-1" class="custom-input-label" >Where</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plus-minus">
+                        <div class="add-experience-row" id="add-experience-row-btn">
+                            <img src="./images/icons/plus.svg" alt="">
+                        </div> 
+                        <div class="add-experience-row" id="remove-experience-row-btn">
+                            <img src="./images/icons/minus.svg" alt="">
+                        </div> 
+                    </div>
                 </div>
             </div>
             <hr>
