@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -16,10 +18,6 @@ body {
     color: var(--text-color);
 }
 
-nav {
-    width: 100vw;
-}
-
 header nav ul {
     width: 100%;
     display: flex;
@@ -29,8 +27,27 @@ header nav ul {
     color: rgb(255, 255, 255);
 }
 
+header nav ul:nth-child(1) {
+    font-family: "Rubik Glitch",'Times New Roman', Times, serif;
+    color: black;
+    font-size: 2rem;
+}
+
 header nav ul li{
     list-style: none;
+}
+
+header nav ul li button {
+    padding: 0.5rem;
+    background-color: var(--nav-background-color);
+    color: white;
+    border: 3px solid rgb(164, 44, 0);
+    border-radius: 5px;
+    transition: 0.5s;
+}
+header nav ul li button:hover {
+    background-color:  rgb(164, 44, 0);
+    color: black;
 }
 
 #main-layout {
@@ -59,9 +76,13 @@ header nav ul li{
 
 .display-section-img {
     margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .display-section-img img{
-    width: 100%;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -85,7 +106,7 @@ header nav ul li{
 }
 
 hr {
-    margin: 1rem 0;
+    margin: 2rem 0;
     border-color: var(--cv-main-color);
 }
 
@@ -100,6 +121,12 @@ hr {
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
+}
+
+#email-display,
+#phone-number-display,
+#address-display {
+    margin-left: 5px;
 }
 
 .contact-info-icon,
@@ -186,6 +213,7 @@ hr {
     transition: 0.5s;
     text-wrap: wrap;
     max-width: 80ch ;
+    font-size: 1.3rem;
 }
 .display-section-education ul li:hover span, 
 .display-section-experience ul li:hover span {
@@ -265,6 +293,24 @@ hr {
     padding: 1rem;
 }
 
+.input-section-image {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+}
+
+#image-input {
+    visibility: hidden;
+}
+#label-image {
+    background-color: var(--cv-main-color);
+    display: inline-block;
+    padding: 0.5rem;
+    width: 112px;
+    color: black;
+    border-radius: 5px;
+}
+
 .input-section-education,
 .input-section-experience 
 {
@@ -300,10 +346,75 @@ input[type="date"] {
     justify-content: end;
 }
 
-#remove-education-row-btn,
-#remove-experience-row-btn
+.remove-education-row,
+.remove-experience-row,
+.remove-social
 {
-    background-color: rgb(150, 0, 0);
+    background-color: brown;
+    padding: 0.2rem;
+    border-radius: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-follow-me h3 {
+    background-color: var(--cv-main-color);
+    color: black;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.display-follow-me ul {
+    padding: 1rem;
+    display: grid;
+    flex-direction: 1fr;
+    gap: 10px;
+}
+
+.display-follow-me ul li {
+    list-style: none;
+    color: var(--text-color);
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--cv-main-color);
+    transition: 0.5s;
+}
+
+.display-follow-me ul li:hover {
+    background-color: var(--cv-main-color);
+    color: black;
+}
+
+.display-follow-me ul li a:hover {
+    color: black;
+    text-decoration-color: black;
+}
+
+.display-follow-me ul li a {
+    color: var(--text-color);
+    text-decoration-color: var(--cv-main-color);
+}
+
+#resume-div {
+    padding: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+#print-resume {
+    padding: 0.5rem;
+    background-color: var(--main-background-color);
+    border:2px solid var(--cv-main-color);
+    color: white;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+#print-resume:hover {
+    background-color: var(--cv-main-color);
+    color: black;
 }
 
 @media screen and (max-width:900px) {
@@ -320,6 +431,14 @@ input[type="date"] {
     #display-body {
         display: grid;
         grid-template-columns: 1fr;
+    }
+    .input-section-education-row,
+    .input-section-experience-row 
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 1rem;
+        gap: 10px;
     }
 }
 

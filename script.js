@@ -85,6 +85,27 @@ const inputSync = (function () {
 })();
 inputSync.syncDynamically();
 
+// image
+const imagePreview = (function () {
+    function previewImg () {
+        let imageInput = document.querySelector('#image-input');
+        let imageDisplay = document.querySelector('#image-display');
+        imageInput.addEventListener('change', (e) => {
+            let input = e.target;
+            let cur = e;
+            if (e.target.files && e.target.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function(load) {
+                    imageDisplay.src = load.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        })
+    }
+    return {previewImg}
+})();
+imagePreview.previewImg();
+
 // education section
 const educationSection = (function () {
     const addEducationRow = document.querySelector('#add-education-row-btn'); // add btn
@@ -178,6 +199,7 @@ const educationSection = (function () {
             if (educationRows.childElementCount === 1) {
                 return
             }else {
+                educationInputDateArray.pop();
                 educationRows.lastElementChild.remove();
                 displayEducation.lastElementChild.remove();
                 displayEducation.lastElementChild.remove();
@@ -280,6 +302,7 @@ const experienceSection = (function () {
             if (experienceRows.childElementCount === 1) {
                 return
             }else {
+                experienceInputDateArray.pop();
                 experienceRows.lastElementChild.remove();
                 displayExperience.lastElementChild.remove();
                 displayExperience.lastElementChild.remove();
@@ -290,7 +313,111 @@ const experienceSection = (function () {
 })();
 experienceSection.initialiize();
 
-const print = document.querySelector('#print');
-print.addEventListener('click', (e) => {
-    window.print();
-});
+
+// social media
+const socialMediaSection = (function () {
+    // add new social input btn
+    const addSocialBtn = document.querySelector('#add-social-media-btn');
+    const removeSocialBtn = document.querySelector('#remove-social-media');
+    // input social media section layout
+    const socialMediaInputLayout = document.querySelector('#input-section-social-media');
+    const socialMediaDisplayLayout = document.querySelector('#social-media-display-layout');
+
+    const socailMediaInputArray = [
+        [
+            {
+                input : document.querySelector('#social-media-name-input-1'),
+                display : document.querySelector('#socail-media-name-display-1')
+            },
+            {
+                input : document.querySelector('#acc-link-input-1'),
+                display : document.querySelector('#acc-link-display-1')
+            }
+        ]
+    ];
+
+    function initialiize () {
+        socailMediaInputArray.forEach(socialMedia => {
+            socialMedia.forEach(social => {
+                displayDynamicUserInput(social.input,social.display);
+            })
+        });
+    
+        // add new social
+        addSocialBtn.addEventListener('click', (e) => {
+            let index = socailMediaInputArray.length + 1;
+    
+            // add new input UI
+            let inputHtml = `
+                <div class="input-group">
+                    <input type="text" name="name" id="social-media-name-input-${index}" class="custom-input" placeholder="Social Media Name">
+                    <label for="social-media-name-input-${index}" class="custom-input-label">Social Media Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="acc-link-input-${index}"  class="custom-input" placeholder="Acc-link">
+                    <label for="acc-link-input-${index}" class="custom-input-label">Acc-link</label>
+                </div>
+            `;
+            let curDiv = document.createElement('div');
+            curDiv.setAttribute('class','input-section-intro');
+            curDiv.innerHTML = inputHtml;
+            socialMediaInputLayout.appendChild(curDiv);
+    
+            // add new display UI
+            let displayHtml = `
+            <span id="socail-media-name-display-${index}">Facebook </span> : <a href="https://www.facebook.com/example" id="acc-link-display-${index}">https://www.facebook.com/example</a>
+            `;
+            let curLi = document.createElement('li');
+            curLi.innerHTML = displayHtml;
+            
+            socialMediaDisplayLayout.appendChild(curLi);
+    
+            // attach event listener
+            let curArray = [
+                {
+                    input : document.querySelector(`#social-media-name-input-${index}`),
+                    display : document.querySelector(`#socail-media-name-display-${index}`)
+                },
+                {
+                    input : document.querySelector(`#acc-link-input-${index}`),
+                    display : document.querySelector(`#acc-link-display-${index}`)
+                }
+            ];
+            socailMediaInputArray.push(curArray);
+            curArray.forEach(social => {
+                displayDynamicUserInput(social.input,social.display);
+            })
+        }) 
+
+        // remove social media
+        removeSocialBtn.addEventListener('click', (e) => {
+            socailMediaInputArray.pop();
+            socialMediaInputLayout.lastElementChild.remove();
+            socialMediaDisplayLayout.lastElementChild.remove();
+        })
+    }
+
+    return {initialiize}
+})();
+socialMediaSection.initialiize();
+
+// default btn
+const defaultBtns = (function () {
+    function showExample () {
+        const example = document.querySelector('#exampleBtn');
+        example.addEventListener('click',() => {
+            window.location.reload();
+        })
+    }
+
+    function printResume () {
+        const print = document.querySelector('#print-resume');
+        print.addEventListener('click', () => {
+            window.print();
+        })
+    }
+    return {showExample,printResume}
+})();
+defaultBtns.showExample();
+defaultBtns.printResume();
+
